@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -21,15 +22,18 @@ public class Post {
     @Column(name = "id")
     private String id;
 
+    @Setter
     @Column(name = "title")
     private String title;
 
+    @Setter
     @Column(name = "content")
     private String content;
 
     @Column(name = "createdTime")
     private LocalDateTime createdTime;
 
+    @Setter
     @Column(name = "modifiedTime")
     private LocalDateTime modifiedTime;
 }
