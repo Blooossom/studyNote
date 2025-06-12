@@ -1,4 +1,4 @@
-package blooossom.api.post.entity;
+package blooossom.api.post.adapter.out;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,24 +16,24 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @Table(name = "post", schema = "note")
-public class Post {
+class PostJpaEntity {
 
     @Id
     @Column(name = "id")
     private String id;
 
-    @Setter
     @Column(name = "title")
     private String title;
 
-    @Setter
     @Column(name = "content")
     private String content;
+
+    @Column(name = "user_id")
+    private String userId;
 
     @Column(name = "createdTime")
     private LocalDateTime createdTime;
 
-    @Setter
     @Column(name = "modifiedTime")
     private LocalDateTime modifiedTime;
 }
