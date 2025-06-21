@@ -20,7 +20,9 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = {"blooossom.api.user.repository", "blooossom.api.post.repository"},
+        basePackages = {"blooossom.api.post.adapter.out",
+                "blooossom.api.user.adapter.out",
+                "blooossom.api.tag.adapter.out"},
         entityManagerFactoryRef = "studyEm", transactionManagerRef = "studyTm"
 )
 @ConfigurationProperties(prefix = "db.datasource")
@@ -54,7 +56,7 @@ public class DataSourceConfig extends HikariConfig {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setPackagesToScan(
-                "blooossom.api.user.entity", "blooossom.api.post.entity"
+                "blooossom.api.post.adapter.out", "blooossom.api.user.adapter.out", "blooossom.api.tag.adapter.out"
         );
         entityManagerFactoryBean.setJpaProperties(getProperties());
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
