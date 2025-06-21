@@ -2,6 +2,7 @@ package blooossom.api.post.domain;
 
 import blooossom.api.post.application.port.in.UpdatePostCommand;
 import blooossom.api.post.application.port.out.LoadPostPort;
+import blooossom.api.tag.domain.Tag;
 import blooossom.api.user.application.port.out.LoadUserPort;
 import blooossom.api.user.domain.User;
 import lombok.AccessLevel;
@@ -10,6 +11,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Builder(access = AccessLevel.PRIVATE)
@@ -22,6 +24,7 @@ public class Post {
     private String author;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private List<Tag> tags;
 
     public static Post of(String id, String title, String content, String author) {
         return Post.builder()
