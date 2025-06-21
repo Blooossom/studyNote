@@ -1,4 +1,4 @@
-package blooossom.api.user.entity;
+package blooossom.api.user.adapter.out;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,14 +7,13 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Entity
 @Table(name = "user", schema = "note")
-public class User {
+class UserJpaEntity {
 
     @Id
     @Column(name = "id")
@@ -26,11 +25,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Setter
     @Column(name = "password")
     private String password;
 
-    @Setter
     @Column(name = "phone")
     private String phone;
 }
