@@ -24,7 +24,8 @@ class RegisterPostService implements RegisterPostUseCase {
         try {
             validateCommand(command);
 
-            registerPostPort.registerPost(Post.of(IdGenerator.getUUID32(), command.userId(), command.title(), command.userId()));
+            registerPostPort.registerPost(Post.of(IdGenerator.getUUID32(),
+                    command.title(), command.content(), command.userId()));
         } catch (Exception e) {
             errorLogger(e);
         }
